@@ -12,7 +12,7 @@ The admin will have options for
 *	STUDENT NEW REGISTRATION
 *	UPDATE STUDENT DETAILS
 *	DELETE STUDENT RECORD
-
+  
 The student will have options for
 1. STUDENT REGISTRATION
 *	NEW REGISTRATION
