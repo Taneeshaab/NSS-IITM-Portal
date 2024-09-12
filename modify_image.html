@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modify Image</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Modify Image</h1>
+    </header>
+
+    <main>
+        <form id="modifyForm">
+            <input type="hidden" id="old_image" name="old_image">
+            <label for="new_image">Select New Image:</label>
+            <input type="file" id="new_image" name="new_image">
+            <button type="submit">Update Image</button>
+        </form>
+    </main>
+
+    <footer>
+        <p>&copy; NSS IIT Madras 2024</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const imageName = urlParams.get('image');
+            const oldImageInput = document.getElementById('old_image');
+            oldImageInput.value = imageName;
+
+            const modifyForm = document.getElementById('modifyForm');
+            modifyForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const formData = new FormData(modifyForm);
+                fetch('/api/modify', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        window.location.href = '/gallery.html';
+                    } else {
+                        alert('Failed to update image');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

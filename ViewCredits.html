@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Credits - NSS IIT Madras</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background: #333;
+            color: #fff;
+            padding: 1em 0;
+            text-align: center;
+        }
+        main {
+            padding: 20px;
+            text-align: center;
+        }
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #333;
+            color: #fff;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        h1 {
+            margin: 20px 0;
+        }
+        .progress-container {
+            width: 80%;
+            margin: 20px auto;
+            background-color: #e0e0e0;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        .progress-bar {
+            height: 30px;
+            width: 0;
+            background-color: #4caf50;
+            text-align: center;
+            line-height: 30px;
+            color: white;
+            border-radius: 5px;
+        }
+        footer {
+            background: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>NSS IIT Madras - Student Credits</h1>
+    </header>
+
+    <main>
+        <!-- Progress Bar -->
+        <div class="progress-container">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+        <p id="progressText"></p>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Event Name</th>
+                    <th>Date of Event</th>
+                    <th>Number of Credits</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Blood Donation Drive</td>
+                    <td>2024-05-15</td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td>Tree Plantation</td>
+                    <td>2024-06-20</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>Teaching Urban Slums</td>
+                    <td>2024-07-10</td>
+                    <td>4</td>
+                </tr>
+                <tr>
+                    <td>Animal Care Workshop</td>
+                    <td>2024-08-05</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>Environmental Awareness Campaign</td>
+                    <td>2024-09-12</td>
+                    <td>6</td>
+                </tr>
+                <tr>
+                    <td>Educational Video Content Creation</td>
+                    <td>2024-10-25</td>
+                    <td>4</td>
+                </tr>
+                <tr>
+                    <td>Blood Donation Awareness Seminar</td>
+                    <td>2024-11-15</td>
+                    <td>3</td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+
+    <footer>
+        <p>&copy; NSS IIT Madras 2024</p>
+    </footer>
+
+    <script>
+        // JavaScript to calculate and display progress
+        const totalCredits = 55;
+        const earnedCredits = 27; // Sum of credits from table
+
+        const progressPercentage = (earnedCredits / totalCredits) * 100;
+
+        document.getElementById('progressBar').style.width = `${progressPercentage}%`;
+        document.getElementById('progressBar').textContent = `${earnedCredits} Credits`;
+
+        document.getElementById('progressText').textContent = `You have completed ${earnedCredits} out of ${totalCredits} credits.`;
+    </script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NSS IIT Madras - Withdraw from NSS</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background: #333;
+            color: #fff;
+            padding: 1em 0;
+            text-align: center;
+        }
+        main {
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+            background: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        form {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+        form label {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        form input, form select, form textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        form textarea {
+            resize: vertical;
+        }
+        form button {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #333;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        form button:hover {
+            background-color: #555;
+        }
+        footer {
+            background: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>NSS IIT Madras - Withdraw from NSS</h1>
+    </header>
+
+    <main>
+        <form action="withdraw_nss.php" method="post">
+            <label for="student-name">Student Name</label>
+            <input type="text" id="student-name" name="student_name" required>
+
+            <label for="roll-number">Roll Number</label>
+            <input type="text" id="roll-number" name="roll_number" required>
+
+            <label for="reason">Reason for Leaving NSS</label>
+            <textarea id="reason" name="reason" rows="4" required></textarea>
+
+            <label for="feedback">Feedback Comments</label>
+            <textarea id="feedback" name="feedback" rows="4"></textarea>
+
+            <label for="date">Date</label>
+            <input type="date" id="date" name="date" required>
+
+            <button type="submit">Submit Withdrawal Request</button>
+        </form>
+    </main>
+
+    <footer>
+        <p>&copy; NSS IIT Madras 2024</p>
+    </footer>
+</body>
+</html>

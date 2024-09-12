@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modify/Delete Event</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        header {
+            background: #333;
+            color: #fff;
+            padding: 1em 0;
+            text-align: center;
+        }
+        .form-container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+        .form-container h2 {
+            margin-top: 0;
+        }
+        select, input, textarea {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin: 5px 0;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .delete-button {
+            background-color: #dc3545;
+        }
+        .delete-button:hover {
+            background-color: #c82333;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Modify/Delete Event</h1>
+    </header>
+
+    <div class="container">
+        <div class="form-container">
+            <h2>Select Event to Modify/Delete</h2>
+            <select id="event-select">
+                <option value="">Select an event</option>
+                <!-- Options will be populated dynamically -->
+            </select>
+
+            <form id="modify-event-form" style="display: none;">
+                <input type="text" id="modify-event-name" placeholder="Event Name" required>
+                <textarea id="modify-event-description" placeholder="Event Description" rows="4" required></textarea>
+                <input type="date" id="modify-event-date" required>
+                <input type="time" id="modify-event-time" required>
+                <input type="number" id="modify-event-volunteers" placeholder="Number of Volunteers" required>
+                <button type="submit">Update Event</button>
+                <button type="button" id="delete-event" class="delete-button">Delete Event</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const events = [
+            { name: 'Community Clean-Up', description: 'A day dedicated to cleaning up local parks and streets.', date: '2024-09-10', time: '9:00 AM - 1:00 PM', volunteers: 30 },
+            { name: 'Fundraising Gala', description: 'An elegant evening to raise funds for community projects.', date: '2024-10-05', time: '6:00 PM - 10:00 PM', volunteers: 50 },
+            { name: 'Youth Mentorship Program', description: 'Mentoring local high school students.', date: '2024-09-15', time: '2:00 PM - 5:00 PM', volunteers: 20 },
+            { name: 'Health and Wellness Fair', description: 'A fair offering health screenings and wellness information.', date: '2024-09-25', time: '10:00 AM - 4:00 PM', volunteers: 25 },
+            { name: 'Charity Run', description: 'A 5K run to support local charities.', date: '2024-10-12', time: '8:00 AM - 12:00 PM', volunteers: 40 },
+            { name: 'Environmental Awareness Workshop', description: 'Workshop on environmental conservation and sustainability.', date: '2024-10-20', time: '1:00 PM - 3:00 PM', volunteers: 15 },
+            { name: 'Senior Citizens’ Social Gathering', description: 'A social event for local senior citizens.', date: '2024-09-18', time: '3:00 PM - 6:00 PM', volunteers: 10 },
+            { name: 'Book Drive', description: 'Collecting and donating books to local libraries and schools.', date: '2024-09-30', time: '10:00 AM - 2:00 PM', volunteers: 18 },
+            { name: 'Food Bank Distribution', description: 'Distributing food to families in need.', date: '2024-10-08', time: '11:00 AM - 2:00 PM', volunteers: 35 },
+            { name: 'Community Art Exhibition', description: 'Showcasing local artists’ works.', date: '2024-09-28', time: '10:00 AM - 5:00 PM', volunteers: 12 },
+            { name: 'Volunteer Appreciation Event', description: 'An event to thank and recognize volunteers for their contributions.', date: '2024-10-15', time: '6:00 PM - 8:00 PM', volunteers: 25 },
+            { name: 'Career Counseling Workshop', description: 'Providing career guidance and advice to job seekers.', date: '2024-10-25', time: '9:00 AM - 12:00 PM', volunteers: 8 },
+            { name: 'Holiday Toy Drive', description: 'Collecting toys for underprivileged children during the holiday season.', date: '2024-12-05', time: '10:00 AM - 3:00 PM', volunteers: 20 },
+            { name: 'Public Speaking Training', description: 'Training sessions to improve public speaking skills.', date: '2024-11-02', time: '1:00 PM - 4:00 PM', volunteers: 15 },
+            { name: 'Local Farmers’ Market', description: 'A market to promote local produce and artisans.', date: '2024-10-22', time: '9:00 AM - 2:00 PM', volunteers: 22 }
+        ];
+
+        function populateEventSelect() {
+            const eventSelect = document.getElementById('event-select');
+            events.forEach((event, index) => {
+                const option = document.createElement('option');
+                option.value = index;
+                option.textContent = event.name;
+                eventSelect.appendChild(option);
+            });
+        }
+
+        function populateModifyForm(index) {
+            const event = events[index];
+            document.getElementById('modify-event-name').value = event.name;
+            document.getElementById('modify-event-description').value = event.description;
+            document.getElementById('modify-event-date').value = event.date;
+            document.getElementById('modify-event-time').value = event.time;
+            document.getElementById('modify-event-volunteers').value = event.volunteers;
+            document.getElementById('modify-event-form').style.display = 'block';
+        }
+
+        document.getElementById('event-select').addEventListener('change', (e) => {
+            const index = e.target.value;
+            if (index !== '') {
+                populateModifyForm(index);
+            } else {
+                document.getElementById('modify-event-form').style.display = 'none';
+            }
+        });
+
+        document.getElementById('modify-event-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const index = document.getElementById('event-select').value;
+            if (index !== '') {
+                events[index] = {
+                    name: document.getElementById('modify-event-name').value,
+                    description: document.getElementById('modify-event-description').value,
+                    date: document.getElementById('modify-event-date').value,
+                    time: document.getElementById('modify-event-time').value,
+                    volunteers: document.getElementById('modify-event-volunteers').value
+                };
+                console.log('Event Updated:', events[index]); 
+                displayEvents();
+                document.getElementById('modify-event-form').reset();
+                document.getElementById('modify-event-form').style.display = 'none';
+                document.getElementById('event-select').value = '';
+            }
+        });
+
+        document.getElementById('delete-event').addEventListener('click', () => {
+            const index = document.getElementById('event-select').value;
+            if (index !== '') {
+                events.splice(index, 1);
+                console.log('Event Deleted:', index); 
+                displayEvents();
+                document.getElementById('modify-event-form').reset();
+                document.getElementById('modify-event-form').style.display = 'none';
+                document.getElementById('event-select').value = '';
+            }
+        });
+
+        function displayEvents() {
+            const eventSelect = document.getElementById('event-select');
+            eventSelect.innerHTML = '<option value="">Select an event</option>';
+            events.forEach((event, index) => {
+                const option = document.createElement('option');
+                option.value = index;
+                option.textContent = event.name;
+                eventSelect.appendChild(option);
+            });
+        }
+
+        // Initialize the dropdown with events
+        displayEvents();
+    </script>
+</body>
+</html>
