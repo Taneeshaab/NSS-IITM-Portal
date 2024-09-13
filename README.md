@@ -22,17 +22,17 @@ The student will have options for
 4. VIEW YOUR CREDITS
 5. FEEDBACK
 
-#  Getting Started:
+##  Getting Started:
 
-# PREREQUISITES:
+## PREREQUISITES:
 * Browser like Chrome or IE or Firefox
 
-# INSTALLATION:
+## INSTALLATION:
 * Clone this repository to your local machine:
 * git clone https://github.com/Taneeshaab/NSS-IITM-Portal.git 
 * cd NSS-IITM-Portal
 
-# RUNNING THE APPLICATION:
+## RUNNING THE APPLICATION:
 *The student need to select a event and click register
 *It will proceed to a page where the details of the student is displayed and the student needs to click confirm details for registering for the event.
 
