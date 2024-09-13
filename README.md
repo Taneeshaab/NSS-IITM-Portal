@@ -34,7 +34,7 @@ The student will have options for
 
 ## RUNNING THE APPLICATION:
 * Start with HomePage.html
-* Scroll over Events to naviagate to Add Event or Modify Event or Event Calendar or Register Event
+* In the Home page, Scroll over Events to navigate to Add Event or Modify Event or Event Calendar or Register Event
 * Register Event has list of Events that can be searched by Key Word or Search by Date. Click Register
 * Add Event /Modify Event is available only for Admin Roles
 * Event Calendar has the list of planned events displayed in a Monthwise calendar view
