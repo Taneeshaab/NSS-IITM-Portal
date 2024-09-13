@@ -3,9 +3,9 @@ National Service Scheme IIT Madras is a Student run organization with a mission 
 The admin will have options for 
 1. STUDENT CREDIT MANAGEMENT
 2. EVENT MANAGEMENT PORTAL
-*	ADD NEW EVENT
-*	MODIFY EVENT
-*	DELETE EVENT
+  *	ADD NEW EVENT
+  *	MODIFY EVENT
+  *	DELETE EVENT
 3. EVENT CALENDAR
 4. MODIFY IMAGE
 5. STUDENT MASTER DATA
@@ -52,13 +52,4 @@ The student will have options for
 
 
 
-
-
-
-
-
-
-## This is the Second Heading
-
-### This is the Third Heading
 
