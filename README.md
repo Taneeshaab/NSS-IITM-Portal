@@ -1,5 +1,5 @@
 # NSS-IITM-Portal
-NSS is the N. This repository contains the source code for the website of NSS IITM. This website has multiple functionalities for administrators and students.
+National Service Scheme IIT Madras is a Student run organization with a mission towards mobilizing youth towards Social service.This repository contains the source code for the website of NSS IITM. This website has multiple functionalities for administrators and students.
 The admin will have options for 
 1. STUDENT CREDIT MANAGEMENT
 2. EVENT MANAGEMENT PORTAL
