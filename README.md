@@ -33,8 +33,15 @@ The student will have options for
 * cd NSS-IITM-Portal
 
 ## RUNNING THE APPLICATION:
-*The student need to select a event and click register
-*It will proceed to a page where the details of the student is displayed and the student needs to click confirm details for registering for the event.
+* Start with HomePage.html
+* Scroll over Events to naviagate to Add Event or Modify Event or Event Calendar or Register Event
+* Register Event has list of Events that can be searched by Key Word or Search by Date. Click Register
+* Add Event /Modify Event is available only for Admin Roles
+* Event Calendar has the list of planned events displayed in a Monthwise calendar view
+* Log-In with Credentials to view the Student Master Details
+* Student Master Page has features to Register Event, Withdraw from NSS, Feedback, View Credits
+* Scroll over Gallery to view the Latest Events and also to Update Images in Gallery
+
 
 
 
